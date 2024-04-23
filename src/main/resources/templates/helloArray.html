@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+helloArray<br>
+
+<!--<h1 th:text="${animals}"></h1>-->
+<h5 th:text="${animals[0]}"></h5>
+<h5 th:text="${animals[1]}"></h5>
+<h5 th:text="${animals[2]}"></h5>
+
+<hr>
+<!--타임리프 반복문 1 -->
+<ul>
+
+    <th:block th:each="ani: ${animals}" >
+    <li> [[${ani}]]</li>
+       <!-- [[${ani}]]-->
+    </th:block>
+</ul>
+
+
+
+<hr>
+<ol>
+    <th:block th:each="ani, status : ${animals}" >
+        <!--<li> [[${ani}]]</li>-->
+        [[${status}]]
+        인덱스 : [[${status.index}]], 인덱스 : [[${status.count}]], 크기 : [[${status.size}]], 현재값 : [[${status.current}]] <br>
+    </th:block>
+</ol>
+
+
+
+
+<hr>
+<ol>
+    <th:block th:each="ani, status : ${animals}" >
+<!--        [[${status.odd}]]-->
+<!--        <br>-->
+        <span th:text="${status.odd} ? ${status.current} : ''"> </span>
+
+    </th:block>
+</ol>
+
+<hr>
+<ol>
+    <th:block th:each="ani, status : ${animals}" >
+
+        <span th:text="${status.even} ? ${status.current} : ''"> </span>
+
+    </th:block>
+</ol>
+
+
+<hr>
+<ol>
+    <th:block th:each="ani, status : ${animals}" >
+        <span th:text=" ${status.index } %3 == 0  ? ${status.current} : ''"> </span>
+    </th:block>
+</ol>
+
+
+<hr>
+
+<ol>
+    <th:block th:each="ani, status : ${animals}" >
+        <span th:text=" ${status.index } %3 == 0  ? ${status.current} : ''"> </span>
+    </th:block>
+</ol>
+
+
+<!-- 타임리프 반복문 2-->
+<hr><hr>
+<ul>
+    <li th:each="ani: ${animals}" th:text="${ani}"></li>
+</ul>
+
+
+<!-- 타임리프 스위치문-->
+<hr><hr>
+<!--<ul>-->
+<!--    <li th:each="ani, status: ${animals}" th:text="${ani}">-->
+<!--        -->
+<!--    </li>-->
+<!--</ul>-->
+
+
+<th:block th:switch="3">
+    <span th:case="0"> 하이 </span>
+    <span th:case="1"> 가가 </span>
+    나머지
+</th:block>
+</body>
+</html>
+
+
+<hr>
+<hr>
+
+<a href="http://www.naver.com">네이버</a>
+<a th:href="@{http://www.naver.com}">네이버2</a>
+
+<a th:href="@{/hello}">헬로우 가기</a>
+
+
+

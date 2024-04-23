@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1 th:text="${msg}"></h1>
+
+<!--<h1 th:text="${animal}"></h1>-->
+
+
+<!--<h1 th:text="${animal[0]}"></h1>-->
+
+<!-- 문자열 할당하는 변수 선언-->
+<div th:with="name='hong'">
+    <h3 th:text="${name}"></h3>
+</div>
+<hr>
+
+<!-- 숫자를 할당하는 변수 선언-->
+<div th:with="num1=9">
+    <h3 th:text="${num1}"></h3>
+</div>
+<hr>
+
+
+
+
+</body>
+</html>
